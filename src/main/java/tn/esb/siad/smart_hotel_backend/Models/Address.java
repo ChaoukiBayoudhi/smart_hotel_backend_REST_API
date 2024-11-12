@@ -1,10 +1,15 @@
 package tn.esb.siad.smart_hotel_backend.Models;
 
 import jakarta.persistence.*;
-import lombok.NonNull;
+import lombok.*;
 
-import java.util.Objects;
-
+@Getter
+@Setter
+@AllArgsConstructor
+@RequiredArgsConstructor
+@NoArgsConstructor
+@ToString
+@EqualsAndHashCode(exclude = "id")
 @Entity
 public class Address {
     @Id
@@ -18,5 +23,10 @@ public class Address {
     private String country;
     @NonNull
     private String zipCode;
+
+    //implement the 1-1 relationship between Address and Hotel
+    @OneToOne
+    private Hotel hotel;
+
 
 }

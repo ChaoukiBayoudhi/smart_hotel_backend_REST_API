@@ -8,6 +8,7 @@ import tn.esb.siad.smart_hotel_backend.Enumerations.HotelRating;
 @Setter //generates all setters methods for private or protected fields
 @AllArgsConstructor //generates a constructor with all fields as arguments
 @RequiredArgsConstructor //generates a constructor with only required fields as arguments (fields annotated with NonNull)
+@NoArgsConstructor  //generates a constructor without parameters
 @ToString //generates redefinition of toString() method (returns value of all fields)
 //@EqualsAndHashCode //generates redefinition of equals and hashCode methods using all fields
 //@EqualsAndHashCode(onlyExplicitlyIncluded = true) //only fields annotated with @EqualsAndHashCode.Include are used to compare objects
@@ -25,5 +26,11 @@ public class Hotel {
     private String name;
     @Enumerated(EnumType.STRING)
     private HotelRating rating;
+
+    //implement the 1-1 relationship between Hotel and Address
+    @OneToOne(mappedBy = "hotel", cascade=CascadeType.ALL)
+    //in SQL address_id foreign key references Address(id)
+    @JoinColumn(name="address_id", referencedColumnName="id", nullable=false)
+    private Address address;
 
 }
