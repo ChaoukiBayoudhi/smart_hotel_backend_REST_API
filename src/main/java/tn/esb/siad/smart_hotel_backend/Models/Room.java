@@ -19,4 +19,9 @@ public class Room {
     private String roomNumber;
     @Enumerated(EnumType.STRING)
     private RoomType type;
+
+    //implement the relationship between Room and Hotel (*-1)
+    @ManyToOne(cascade = CascadeType.ALL)
+    @JoinColumn(name="hotel_id", referencedColumnName = "id")
+    private Hotel hotel;
 }

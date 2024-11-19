@@ -4,6 +4,10 @@ package tn.esb.siad.smart_hotel_backend.Models;
 import jakarta.persistence.*;
 import lombok.*;
 import tn.esb.siad.smart_hotel_backend.Enumerations.HotelRating;
+
+import java.util.HashSet;
+import java.util.Set;
+
 @Getter //generates all getters methods for private or protected fields
 @Setter //generates all setters methods for private or protected fields
 @AllArgsConstructor //generates a constructor with all fields as arguments
@@ -33,4 +37,7 @@ public class Hotel {
     @JoinColumn(name="address_id", referencedColumnName="id", nullable=false)
     private Address address;
 
+    //implement the relationship between Hotel and Room (1-*)
+    @OneToMany(mappedBy = "hotel")
+    private Set<Room> rooms = new HashSet<>();
 }
