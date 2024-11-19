@@ -7,6 +7,8 @@ import tn.esb.siad.smart_hotel_backend.Enumerations.ReservationStatus;
 
 import java.time.LocalDate;
 import java.time.LocalDateTime;
+import java.util.ArrayList;
+import java.util.List;
 
 @Getter
 @Setter
@@ -28,4 +30,8 @@ public class Reservation {
     private LocalDateTime reservationDate;
     @Enumerated(EnumType.STRING)
     private ReservationStatus reservationStatus;
+
+    //implement the relationship between Reservation and RoomService (*-*)
+    @ManyToMany
+    private List<RoomService> roomServices = new ArrayList<>();
 }

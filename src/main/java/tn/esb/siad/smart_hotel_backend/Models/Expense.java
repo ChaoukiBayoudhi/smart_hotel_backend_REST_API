@@ -25,4 +25,11 @@ public class Expense {
     private double amount;
     @Column(length = 150, nullable = true)
     private String description;
+
+    //implement the relationship between expense and Room (*-1)
+    @ManyToOne(cascade = CascadeType.ALL)
+    @JoinColumn(name ="room_id", referencedColumnName = "id", nullable = true)
+    private Room room;
+
+
 }

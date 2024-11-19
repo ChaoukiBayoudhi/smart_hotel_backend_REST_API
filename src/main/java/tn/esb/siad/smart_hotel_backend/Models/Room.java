@@ -4,6 +4,9 @@ import jakarta.persistence.*;
 import lombok.*;
 import tn.esb.siad.smart_hotel_backend.Enumerations.RoomType;
 
+import java.util.ArrayList;
+import java.util.List;
+
 @Getter
 @Setter
 @AllArgsConstructor
@@ -24,4 +27,9 @@ public class Room {
     @ManyToOne(cascade = CascadeType.ALL)
     @JoinColumn(name="hotel_id", referencedColumnName = "id")
     private Hotel hotel;
+
+    //implement the relationship between Room and Expense (1-*)
+    @OneToMany(mappedBy = "room")
+    private List<Expense> expenseList = new ArrayList<Expense>();
+
 }
