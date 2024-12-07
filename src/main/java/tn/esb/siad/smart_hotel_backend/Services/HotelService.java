@@ -2,13 +2,11 @@ package tn.esb.siad.smart_hotel_backend.Services;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
-import org.springframework.http.HttpStatusCode;
 import org.springframework.http.ResponseEntity;
 import org.springframework.stereotype.Service;
 import tn.esb.siad.smart_hotel_backend.Models.Hotel;
 import tn.esb.siad.smart_hotel_backend.Repositories.HotelRepository;
 
-import javax.swing.text.html.Option;
 import java.util.List;
 import java.util.Optional;
 
