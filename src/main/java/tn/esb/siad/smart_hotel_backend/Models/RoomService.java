@@ -31,7 +31,7 @@ public class RoomService {
      //implement the relationship between RoomService and reservation (*-*)
     @ManyToMany
     //create the association table
-    @JoinTable(name="Consummation",
+    @JoinTable(name="Consummations",
             joinColumns = @JoinColumn(name = "room_service_id"),
             inverseJoinColumns = @JoinColumn(name = "reservation_id")
     )

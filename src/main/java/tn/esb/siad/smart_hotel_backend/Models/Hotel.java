@@ -39,5 +39,5 @@ public class Hotel {
 
     //implement the relationship between Hotel and Room (1-*)
     @OneToMany(mappedBy = "hotel")
-    private Set<Room> rooms = new HashSet<>();
+    private Set<Room> rooms = new HashSet();
 }
