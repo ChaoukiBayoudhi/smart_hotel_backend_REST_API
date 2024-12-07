@@ -12,6 +12,7 @@ import java.util.List;
 
 @RestController
 @RequestMapping("/addresses")
+@CrossOrigin("http://localhost:4200")
 public class AddressController {
     @Autowired
     private AddressService addressService;

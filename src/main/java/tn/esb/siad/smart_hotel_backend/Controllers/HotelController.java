@@ -10,6 +10,7 @@ import java.util.List;
 
 @RestController
 @RequestMapping("/hotels")
+@CrossOrigin("http://localhost:4200")
 public class HotelController {
     @Autowired
     private HotelService hotelService;
@@ -19,7 +20,7 @@ public class HotelController {
         return hotelService.getHotels();
     }
 
-    //url=http://localhost:9995/hotels/
+    //url=http://localhost:9995/hotels/add
     @PostMapping("/add")
     public ResponseEntity<Hotel> add(@RequestBody Hotel hotel){
         return hotelService.addHotel(hotel);
