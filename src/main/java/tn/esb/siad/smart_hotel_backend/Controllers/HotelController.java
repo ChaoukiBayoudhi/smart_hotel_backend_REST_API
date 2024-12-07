@@ -26,4 +26,22 @@ public class HotelController {
         return hotelService.addHotel(hotel);
     }
 
+    // URL: http://localhost:9995/hotels/delete/{id}
+    @DeleteMapping("/delete/{id}")
+    public ResponseEntity<String> deleteHotel(@PathVariable Long id) {
+        return hotelService.removeHotel(id);
+    }
+
+    // URL: http://localhost:9995/hotels/update/{id}
+    @PutMapping("/update/{id}")
+    public ResponseEntity<Hotel> updateHotel(@RequestBody Hotel hotel, @PathVariable Long id) {
+        return hotelService.updateHotel(hotel, id);
+    }
+    // URL: http://localhost:9995/hotels/{id}
+    @GetMapping("/{id}")
+    public ResponseEntity<Hotel> getHotelById(@PathVariable Long id) {
+        return hotelService.getHotelById(id);
+    }
+
+
 }
