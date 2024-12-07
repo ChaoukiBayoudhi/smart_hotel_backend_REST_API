@@ -11,19 +11,19 @@ import tn.esb.siad.smart_hotel_backend.Services.AddressService;
 import java.util.List;
 
 @RestController
-@RequestMapping("/hotels")
+@RequestMapping("/addresses")
 public class AddressController {
     @Autowired
     private AddressService addressService;
 
 
-    //url=http://localhost:9995/hotels/all
+    //url=http://localhost:9995/addresses/all
     @GetMapping("/all")
     public ResponseEntity<List<Address>> getAllAddresses(){
         return addressService.getAddress();
     }
 
-    //url=http://localhost:9995/hotels/
+    //url=http://localhost:9995/addresses/
     @PostMapping("/add")
     public ResponseEntity<Address> add(@RequestBody Address address){
         return addressService.addAddress(address);
